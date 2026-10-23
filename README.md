@@ -13,7 +13,8 @@ trained model produces unaided on the same scan.*
 >
 > **Keep this repository private.** `DATA/` and `SEG/` (raw CT volumes and
 > annotations) are excluded by `.gitignore` and must never be committed — the
-> filenames are medical record numbers.
+> filenames are medical record numbers. The imaging is distributed through the
+> team Google Drive instead; see [Getting the data](#getting-the-data).
 >
 > What *is* committed still carries patient identifiers: `work/manifest.json`,
 > `work/missing_images.csv`, `work/disease_metrics_manual.json` and the example
@@ -45,6 +46,9 @@ trained model produces unaided on the same scan.*
 DATA/  27 CT volumes      512×512×(89–423), in-plane 0.27–0.54 mm, slice 0.6–1.25 mm, LPS
 SEG/   54 annotation masks 6 classes (background + 5 structures), same grid as the CT
 ```
+
+Both folders live on the team Google Drive, not in this repository — see
+[Getting the data](#getting-the-data).
 
 The folders named `0(9)_all manual`, `N(k)_manual corrected` are **human-in-the-loop
 annotation rounds that have already been run**: round 0 fully hand-drawn, rounds
@@ -346,6 +350,35 @@ python3 -m venv .venv
 
 Runs on CUDA, Apple MPS or CPU — `sinus_hil.config.device()` picks automatically.
 MPS was measured ~4.4× faster than CPU on an M2 Max.
+
+### Getting the data
+
+**The imaging is not in this repository — it is on the team Google Drive**, which
+everyone already has access to. It is deliberately kept out of git: it is patient
+imaging, it is 1.2 GB, and one volume exceeds GitHub's 100 MB per-file limit.
+
+Download the two folders from Drive and place them at the repository root,
+keeping the round-folder names exactly as they are:
+
+```
+sinus-ct-segmentation-hil/
+├── DATA/        # CT volumes      <- from Google Drive
+│   ├── 0(9)_all manual/
+│   ├── 1(7)_manual corrected/
+│   └── ...
+├── SEG/         # annotations     <- from Google Drive
+│   └── ...
+├── sinus_hil/
+└── work/
+```
+
+`manifest.py` discovers cases by walking these folders and parsing the round
+number from the folder name, so renaming them will break the pairing.
+
+**You do not need the data to use the model.** `work/runs/base_fold0/best.pt` is
+committed, so inference on new scans works straight after cloning. The data is
+only needed to retrain, to rerun the audits, or to reproduce the numbers in
+sections 3 and 4.
 
 ### Full pipeline
 
