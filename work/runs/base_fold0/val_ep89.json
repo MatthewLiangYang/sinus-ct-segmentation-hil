@@ -1,0 +1,67 @@
+{
+ "cases": [
+  {
+   "case_id": "000017779091",
+   "dice": {
+    "nasal_cavity": 0.7739,
+    "ethmoid": 0.8639,
+    "maxillary": 0.8099,
+    "sphenoid": 0.9057,
+    "frontal": 0.8981
+   },
+   "mean_dice": 0.850299052892131
+  },
+  {
+   "case_id": "100011985908",
+   "dice": {
+    "nasal_cavity": 0.9369,
+    "ethmoid": 0.8305,
+    "maxillary": 0.977,
+    "sphenoid": 0.8916,
+    "frontal": 0.808
+   },
+   "mean_dice": 0.8888056300995391
+  },
+  {
+   "case_id": "100054907579",
+   "dice": {
+    "nasal_cavity": 0.8823,
+    "ethmoid": 0.7595,
+    "maxillary": 0.9095,
+    "sphenoid": 0.7879,
+    "frontal": 0.8683
+   },
+   "mean_dice": 0.8415054628174259
+  },
+  {
+   "case_id": "100054907579-s2",
+   "dice": {
+    "nasal_cavity": 0.8774,
+    "ethmoid": 0.7996,
+    "maxillary": 0.8757,
+    "sphenoid": 0.651,
+    "frontal": 0.8613
+   },
+   "mean_dice": 0.8130056698128254
+  },
+  {
+   "case_id": "100075233930",
+   "dice": {
+    "nasal_cavity": 0.905,
+    "ethmoid": 0.8055,
+    "maxillary": 0.9703,
+    "sphenoid": 0.7668,
+    "frontal": 0.8683
+   },
+   "mean_dice": 0.863169324417467
+  }
+ ],
+ "dice_per_class": {
+  "nasal_cavity": 0.875091798311064,
+  "ethmoid": 0.8118213485624072,
+  "maxillary": 0.9084715045437495,
+  "sphenoid": 0.8005984309681873,
+  "frontal": 0.8608020576539804
+ },
+ "mean_dice": 0.8513570280078777
+}

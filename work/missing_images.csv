@@ -1,0 +1,26 @@
+patient_id,round,mask_path,expected_shape,expected_spacing_mm,期望放置目录
+10004156087,0,/Users/liangyang/Desktop/HIL/SEG/0(9)_all manual/10004156087(18).nii.gz,512x512x181,"0.377,0.377,0.700",DATA/0(9)_all manual
+100058928795,0,/Users/liangyang/Desktop/HIL/SEG/0(9)_all manual/100058928795(19).nii.gz,512x512x152,"0.375,0.375,0.700",DATA/0(9)_all manual
+100092408051,1,/Users/liangyang/Desktop/HIL/SEG/1(7)_manual corrected/100092408051(13).nii.gz,512x512x192,"0.330,0.330,0.700",DATA/1(7)_manual corrected
+100093396750,1,/Users/liangyang/Desktop/HIL/SEG/1(7)_manual corrected/100093396750.nii.gz,512x512x121,"0.342,0.342,0.706",DATA/1(7)_manual corrected
+100094581624,1,/Users/liangyang/Desktop/HIL/SEG/1(7)_manual corrected/100094581624(21).nii.gz,512x512x181,"0.379,0.379,0.700",DATA/1(7)_manual corrected
+100095356299,1,/Users/liangyang/Desktop/HIL/SEG/1(7)_manual corrected/100095356299(16).nii.gz,512x512x175,"0.391,0.391,0.700",DATA/1(7)_manual corrected
+100095493282,1,/Users/liangyang/Desktop/HIL/SEG/1(7)_manual corrected/100095493282(14).nii.gz,512x512x191,"0.391,0.391,0.700",DATA/1(7)_manual corrected
+100066303817,3,/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/100066303817.nii.gz,512x512x182,"0.339,0.339,0.600",DATA/3(13)_manual corrected
+100090707272,3,/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/100090707272.nii.gz,512x512x167,"0.273,0.273,0.750",DATA/3(13)_manual corrected
+100096604168,3,/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/100096604168.nii.gz,512x512x155,"0.328,0.328,0.700",DATA/3(13)_manual corrected
+100096669732,3,/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/100096669732.nii.gz,512x512x155,"0.328,0.328,0.700",DATA/3(13)_manual corrected
+100098309022,3,/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/100098309022.nii.gz,512x512x163,"0.346,0.346,0.750",DATA/3(13)_manual corrected
+100082590793,4,/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100082590793.nii.gz,512x512x175,"0.365,0.365,0.700",DATA/4(16)_manual corrected
+100094991070,4,/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100094991070.nii.gz,512x512x206,"0.414,0.414,0.700",DATA/4(16)_manual corrected
+100095188718,4,/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100095188718.nii.gz,512x512x145,"0.357,0.357,0.700",DATA/4(16)_manual corrected
+100095190003,4,/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100095190003.nii.gz,512x512x176,"0.391,0.391,0.700",DATA/4(16)_manual corrected
+100095197008,4,/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100095197008.nii.gz,512x512x156,"0.352,0.352,0.700",DATA/4(16)_manual corrected
+100095615926,4,/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100095615926.nii.gz,512x512x107,"0.309,0.309,1.250",DATA/4(16)_manual corrected
+100095753578,4,/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100095753578.nii.gz,512x512x185,"0.408,0.408,0.700",DATA/4(16)_manual corrected
+100095788145,4,/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100095788145.nii.gz,512x512x156,"0.391,0.391,0.750",DATA/4(16)_manual corrected
+100096762461,4,/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100096762461.nii.gz,512x512x423,"0.543,0.543,0.600",DATA/4(16)_manual corrected
+100090000233,5,/Users/liangyang/Desktop/HIL/SEG/5(9)_manual corrected/100090000233.nii.gz,512x512x186,"0.391,0.391,0.700",DATA/5(9)_manual corrected
+100095356299,5,/Users/liangyang/Desktop/HIL/SEG/5(9)_manual corrected/100095356299.nii.gz,512x512x175,"0.391,0.391,0.700",DATA/5(9)_manual corrected
+100096431018,5,/Users/liangyang/Desktop/HIL/SEG/5(9)_manual corrected/100096431018.nii.gz,512x512x133,"0.353,0.353,0.750",DATA/5(9)_manual corrected
+100096925860,5,/Users/liangyang/Desktop/HIL/SEG/5(9)_manual corrected/100096925860.nii.gz,512x512x149,"0.342,0.342,0.700",DATA/5(9)_manual corrected

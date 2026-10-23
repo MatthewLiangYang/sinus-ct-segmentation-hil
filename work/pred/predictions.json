@@ -1,0 +1,279 @@
+[
+ {
+  "midline_x": 115,
+  "spacing": [
+   0.8,
+   0.8,
+   0.8
+  ],
+  "nasal_cavity": {
+   "L": {
+    "air_cm3": 18.83,
+    "mean_HU": -571.9,
+    "p90_HU": -115.0,
+    "soft_frac": 0.2877,
+    "env_cm3": null,
+    "opacification": null,
+    "focal_opacification": null,
+    "norm_z": 0.47
+   },
+   "R": {
+    "air_cm3": 19.42,
+    "mean_HU": -727.8,
+    "p90_HU": -208.0,
+    "soft_frac": 0.1449,
+    "env_cm3": null,
+    "opacification": null,
+    "focal_opacification": null,
+    "norm_z": 1.3
+   },
+   "both": {
+    "air_cm3": 38.24,
+    "mean_HU": -651.0,
+    "p90_HU": -150.0,
+    "soft_frac": 0.2152,
+    "env_cm3": null,
+    "opacification": null,
+    "focal_opacification": null
+   },
+   "asym": 0.0154
+  },
+  "ethmoid": {
+   "L": {
+    "air_cm3": 6.19,
+    "mean_HU": -773.5,
+    "p90_HU": -402.0,
+    "soft_frac": 0.0388,
+    "env_cm3": null,
+    "opacification": null,
+    "focal_opacification": null,
+    "norm_z": 2.12,
+    "involvement": 0.129,
+    "grade": 0
+   },
+   "R": {
+    "air_cm3": 5.57,
+    "mean_HU": -790.6,
+    "p90_HU": -472.0,
+    "soft_frac": 0.0247,
+    "env_cm3": null,
+    "opacification": null,
+    "focal_opacification": null,
+    "norm_z": 1.9,
+    "involvement": 0.082,
+    "grade": 0
+   },
+   "both": {
+    "air_cm3": 11.75,
+    "mean_HU": -781.6,
+    "p90_HU": -428.0,
+    "soft_frac": 0.0321,
+    "env_cm3": null,
+    "opacification": null,
+    "focal_opacification": null
+   },
+   "asym": 0.0527
+  },
+  "maxillary": {
+   "L": {
+    "air_cm3": 18.63,
+    "mean_HU": -878.8,
+    "p90_HU": -447.0,
+    "soft_frac": 0.0641,
+    "env_cm3": 18.89,
+    "focal_opacification": 0.0134,
+    "opacification": 0.0134,
+    "filled_mean_HU": 68.7,
+    "norm_z": 0.74,
+    "involvement": 0.214,
+    "grade": 0
+   },
+   "R": {
+    "air_cm3": 19.16,
+    "mean_HU": -879.0,
+    "p90_HU": -459.0,
+    "soft_frac": 0.06,
+    "env_cm3": 19.3,
+    "focal_opacification": 0.0077,
+    "opacification": 0.0077,
+    "filled_mean_HU": 94.0,
+    "norm_z": 0.61,
+    "involvement": 0.2,
+    "grade": 0
+   },
+   "both": {
+    "air_cm3": 37.79,
+    "mean_HU": -878.9,
+    "p90_HU": -452.0,
+    "soft_frac": 0.062,
+    "env_cm3": 38.19,
+    "focal_opacification": 0.0105,
+    "opacification": 0.0105,
+    "filled_mean_HU": 78.1
+   },
+   "asym": 0.014
+  },
+  "sphenoid": {
+   "L": {
+    "air_cm3": 6.28,
+    "mean_HU": -850.7,
+    "p90_HU": -385.9,
+    "soft_frac": 0.0682,
+    "env_cm3": 6.4,
+    "focal_opacification": 0.019,
+    "opacification": 0.019,
+    "filled_mean_HU": -2.0,
+    "norm_z": 0.73,
+    "involvement": 0.227,
+    "grade": 0
+   },
+   "R": {
+    "air_cm3": 3.79,
+    "mean_HU": -815.4,
+    "p90_HU": -329.4,
+    "soft_frac": 0.0816,
+    "env_cm3": 3.94,
+    "focal_opacification": 0.0378,
+    "opacification": 0.0378,
+    "filled_mean_HU": -7.5,
+    "norm_z": 0.27,
+    "involvement": 0.272,
+    "grade": 0
+   },
+   "both": {
+    "air_cm3": 10.07,
+    "mean_HU": -837.4,
+    "p90_HU": -364.0,
+    "soft_frac": 0.0732,
+    "env_cm3": 10.44,
+    "focal_opacification": 0.0359,
+    "opacification": 0.0359,
+    "filled_mean_HU": -40.0
+   },
+   "asym": 0.2473
+  },
+  "frontal": {
+   "L": {
+    "air_cm3": 7.9,
+    "mean_HU": -721.8,
+    "p90_HU": -12.0,
+    "soft_frac": 0.1119,
+    "env_cm3": 7.98,
+    "focal_opacification": 0.0099,
+    "opacification": 0.0099,
+    "filled_mean_HU": 54.4,
+    "norm_z": 2.7,
+    "involvement": 0.676,
+    "grade": 1
+   },
+   "R": {
+    "air_cm3": 2.16,
+    "mean_HU": -695.8,
+    "p90_HU": 80.4,
+    "soft_frac": 0.117,
+    "env_cm3": 2.16,
+    "focal_opacification": 0.0009,
+    "opacification": 0.0009,
+    "filled_mean_HU": -169.0,
+    "norm_z": -0.29,
+    "involvement": 0.676,
+    "grade": 1
+   },
+   "both": {
+    "air_cm3": 10.06,
+    "mean_HU": -716.2,
+    "p90_HU": 9.0,
+    "soft_frac": 0.113,
+    "env_cm3": 10.16,
+    "focal_opacification": 0.0094,
+    "opacification": 0.0094,
+    "filled_mean_HU": 27.9
+   },
+   "asym": 0.5706
+  },
+  "head_width_mm": 169.3,
+  "head_scale": 1.058,
+  "flags": [
+   "额窦左侧受累 (评分 0.676, 分级 1)",
+   "额窦右侧受累 (评分 0.676, 分级 1)"
+  ],
+  "norm_z": {
+   "nasal_cavity_L": 0.47,
+   "nasal_cavity_R": 1.3,
+   "ethmoid_L": 2.12,
+   "ethmoid_R": 1.9,
+   "maxillary_L": 0.74,
+   "maxillary_R": 0.61,
+   "frontal_L": 2.7,
+   "frontal_R": -0.29,
+   "sphenoid_L": 0.73,
+   "sphenoid_R": 0.27
+  },
+  "global_hypoaeration": [],
+  "involvement": {
+   "per_sinus": {
+    "maxillary_L": 0,
+    "maxillary_R": 0,
+    "ethmoid_L": 0,
+    "ethmoid_R": 0,
+    "frontal_L": 1,
+    "frontal_R": 1,
+    "sphenoid_L": 0,
+    "sphenoid_R": 0
+   },
+   "per_sinus_score": {
+    "maxillary_L": 0.214,
+    "maxillary_R": 0.2,
+    "ethmoid_L": 0.129,
+    "ethmoid_R": 0.082,
+    "frontal_L": 0.676,
+    "frontal_R": 0.676,
+    "sphenoid_L": 0.227,
+    "sphenoid_R": 0.272
+   },
+   "total": 2,
+   "max_possible": 16,
+   "note": "自定义受累评分，非标准 Lund-Mackay；阈值未经诊断标签标定"
+  },
+  "case_id": "100097455750_0000",
+  "anatomy_check": {
+   "nasal_cavity": {
+    "vol_cm3": 38.24,
+    "cc": 2,
+    "asym": 0.015,
+    "frag": 0.003,
+    "penalty": 0.002
+   },
+   "ethmoid": {
+    "vol_cm3": 11.75,
+    "cc": 2,
+    "asym": 0.053,
+    "frag": 0.001,
+    "penalty": 0.051
+   },
+   "maxillary": {
+    "vol_cm3": 37.79,
+    "cc": 2,
+    "asym": 0.014,
+    "frag": 0.0,
+    "penalty": 0.0
+   },
+   "sphenoid": {
+    "vol_cm3": 10.07,
+    "cc": 1,
+    "asym": 0.247,
+    "frag": 0.0,
+    "penalty": 0.0
+   },
+   "frontal": {
+    "vol_cm3": 10.06,
+    "cc": 3,
+    "asym": 0.571,
+    "frag": 0.034,
+    "penalty": 0.127
+   },
+   "total_penalty": 0.0358
+  },
+  "mean_entropy": 0.050842200979534534
+ }
+]

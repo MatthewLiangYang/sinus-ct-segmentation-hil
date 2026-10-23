@@ -1,0 +1,20 @@
+# ─── Patient data: NEVER commit ────────────────────────────────────────────
+# Raw CT volumes and manual annotations are identifiable patient data (PHI).
+# Filenames are medical record numbers. These stay on local/institutional storage.
+DATA/
+SEG/
+
+# Preprocessed volumes: still patient imaging, 640 MB, fully regenerable with
+#   python -m sinus_hil.preprocess --jobs 5
+work/cache/
+
+# Optimizer state for resuming training (65 MB, redundant with best.pt)
+work/runs/*/last.pt
+# Abandoned 0.6 mm experiment, superseded (see README "Isotropic spacing")
+work/runs/_abandoned_*/
+
+# ─── Environment ───────────────────────────────────────────────────────────
+.venv/
+__pycache__/
+*.pyc
+.DS_Store

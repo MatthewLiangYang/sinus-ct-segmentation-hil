@@ -1,0 +1,940 @@
+{
+ "pairs": [
+  {
+   "pid": "000005270103",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/0(9)_all manual/000005270103(9).nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/0(9)_all manual/000005270103(9).nii.gz",
+   "seg_round": 0,
+   "img_round": 0,
+   "shape": [
+    512,
+    512,
+    151
+   ],
+   "zoom": [
+    0.3145,
+    0.3145,
+    0.7
+   ],
+   "seg_folder": "0(9)_all manual",
+   "case_id": "000005270103"
+  },
+  {
+   "pid": "000005736178",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/000005736178.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/0(9)_all manual/000005736178(1).nii.gz",
+   "seg_round": 4,
+   "img_round": 0,
+   "shape": [
+    512,
+    512,
+    171
+   ],
+   "zoom": [
+    0.4004,
+    0.4004,
+    0.7
+   ],
+   "seg_folder": "4(16)_manual corrected",
+   "case_id": "000005736178"
+  },
+  {
+   "pid": "000011237781",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/0(9)_all manual/000011237781(26).nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/0(9)_all manual/000011237781(26).nii.gz",
+   "seg_round": 0,
+   "img_round": 0,
+   "shape": [
+    512,
+    512,
+    165
+   ],
+   "zoom": [
+    0.3906,
+    0.3906,
+    0.75
+   ],
+   "seg_folder": "0(9)_all manual",
+   "case_id": "000011237781"
+  },
+  {
+   "pid": "000014615835",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/000014615835.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/3(13)_manual corrected/000014615835_0000.nii.gz",
+   "seg_round": 3,
+   "img_round": 3,
+   "shape": [
+    512,
+    512,
+    177
+   ],
+   "zoom": [
+    0.416,
+    0.416,
+    0.75
+   ],
+   "seg_folder": "3(13)_manual corrected",
+   "case_id": "000014615835"
+  },
+  {
+   "pid": "000017779091",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/5(9)_manual corrected/000017779091.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/5(9)_manual corrected/000017779091_0000.nii.gz",
+   "seg_round": 5,
+   "img_round": 5,
+   "shape": [
+    512,
+    512,
+    187
+   ],
+   "zoom": [
+    0.3711,
+    0.3711,
+    1.0
+   ],
+   "seg_folder": "5(9)_manual corrected",
+   "case_id": "000017779091"
+  },
+  {
+   "pid": "000018095679",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/000018095679.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/4(16)_manual corrected/000018095679_0000.nii.gz",
+   "seg_round": 4,
+   "img_round": 4,
+   "shape": [
+    512,
+    512,
+    158
+   ],
+   "zoom": [
+    0.332,
+    0.332,
+    0.7
+   ],
+   "seg_folder": "4(16)_manual corrected",
+   "case_id": "000018095679"
+  },
+  {
+   "pid": "000020522686",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/000020522686.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/3(13)_manual corrected/000020522686_0000.nii.gz",
+   "seg_round": 3,
+   "img_round": 3,
+   "shape": [
+    512,
+    512,
+    191
+   ],
+   "zoom": [
+    0.3262,
+    0.3262,
+    0.7
+   ],
+   "seg_folder": "3(13)_manual corrected",
+   "case_id": "000020522686"
+  },
+  {
+   "pid": "000041802778",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/000041802778.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/3(13)_manual corrected/000041802778_0000.nii.gz",
+   "seg_round": 3,
+   "img_round": 3,
+   "shape": [
+    512,
+    512,
+    150
+   ],
+   "zoom": [
+    0.3633,
+    0.3633,
+    0.75
+   ],
+   "seg_folder": "3(13)_manual corrected",
+   "case_id": "000041802778"
+  },
+  {
+   "pid": "100006897274",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100006897274.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/4(16)_manual corrected/100006897274_0000.nii.gz",
+   "seg_round": 4,
+   "img_round": 4,
+   "shape": [
+    512,
+    512,
+    136
+   ],
+   "zoom": [
+    0.3379,
+    0.3379,
+    0.75
+   ],
+   "seg_folder": "4(16)_manual corrected",
+   "case_id": "100006897274"
+  },
+  {
+   "pid": "100011985908",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/100011985908.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/3(13)_manual corrected/100011985908_0000.nii.gz",
+   "seg_round": 3,
+   "img_round": 3,
+   "shape": [
+    512,
+    512,
+    191
+   ],
+   "zoom": [
+    0.3906,
+    0.3906,
+    0.7
+   ],
+   "seg_folder": "3(13)_manual corrected",
+   "case_id": "100011985908"
+  },
+  {
+   "pid": "100041261726",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/100041261726.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/3(13)_manual corrected/100041261726_0000.nii.gz",
+   "seg_round": 3,
+   "img_round": 3,
+   "shape": [
+    512,
+    512,
+    156
+   ],
+   "zoom": [
+    0.3965,
+    0.3965,
+    0.75
+   ],
+   "seg_folder": "3(13)_manual corrected",
+   "case_id": "100041261726"
+  },
+  {
+   "pid": "100054907579",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/0(9)_all manual/100054907579(8).nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/0(9)_all manual/100054907579(8).nii.gz",
+   "seg_round": 0,
+   "img_round": 0,
+   "shape": [
+    512,
+    512,
+    177
+   ],
+   "zoom": [
+    0.4062,
+    0.4062,
+    0.7358
+   ],
+   "seg_folder": "0(9)_all manual",
+   "case_id": "100054907579"
+  },
+  {
+   "pid": "100054907579",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100054907579.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/4(16)_manual corrected/100054907579_0000.nii.gz",
+   "seg_round": 4,
+   "img_round": 4,
+   "shape": [
+    512,
+    512,
+    189
+   ],
+   "zoom": [
+    0.4062,
+    0.4062,
+    0.7
+   ],
+   "seg_folder": "4(16)_manual corrected",
+   "case_id": "100054907579-s2"
+  },
+  {
+   "pid": "100056394099",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/0(9)_all manual/100056394099(20).nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/0(9)_all manual/100056394099(20).nii.gz",
+   "seg_round": 0,
+   "img_round": 0,
+   "shape": [
+    512,
+    512,
+    155
+   ],
+   "zoom": [
+    0.3438,
+    0.3438,
+    0.7
+   ],
+   "seg_folder": "0(9)_all manual",
+   "case_id": "100056394099"
+  },
+  {
+   "pid": "100061930010",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/5(9)_manual corrected/100061930010.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/5(9)_manual corrected/100061930010_0000.nii.gz",
+   "seg_round": 5,
+   "img_round": 5,
+   "shape": [
+    512,
+    512,
+    193
+   ],
+   "zoom": [
+    0.3906,
+    0.3906,
+    0.7
+   ],
+   "seg_folder": "5(9)_manual corrected",
+   "case_id": "100061930010"
+  },
+  {
+   "pid": "100073633164",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/5(9)_manual corrected/100073633164.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/5(9)_manual corrected/100073633164_0000.nii.gz",
+   "seg_round": 5,
+   "img_round": 5,
+   "shape": [
+    512,
+    512,
+    89
+   ],
+   "zoom": [
+    0.2871,
+    0.2871,
+    1.0909
+   ],
+   "seg_folder": "5(9)_manual corrected",
+   "case_id": "100073633164"
+  },
+  {
+   "pid": "100075233930",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/0(9)_all manual/100075233930(15).nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/0(9)_all manual/100075233930(15).nii.gz",
+   "seg_round": 0,
+   "img_round": 0,
+   "shape": [
+    512,
+    512,
+    201
+   ],
+   "zoom": [
+    0.4414,
+    0.4414,
+    0.7
+   ],
+   "seg_folder": "0(9)_all manual",
+   "case_id": "100075233930"
+  },
+  {
+   "pid": "100091042315",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100091042315.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/4(16)_manual corrected/100091042315_0000.nii.gz",
+   "seg_round": 4,
+   "img_round": 4,
+   "shape": [
+    512,
+    512,
+    161
+   ],
+   "zoom": [
+    0.3906,
+    0.3906,
+    0.75
+   ],
+   "seg_folder": "4(16)_manual corrected",
+   "case_id": "100091042315"
+  },
+  {
+   "pid": "100094921739",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100094921739.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/1(7)_manual corrected/100094921739(2).nii.gz",
+   "seg_round": 4,
+   "img_round": 1,
+   "shape": [
+    512,
+    512,
+    149
+   ],
+   "zoom": [
+    0.334,
+    0.334,
+    0.75
+   ],
+   "seg_folder": "4(16)_manual corrected",
+   "case_id": "100094921739"
+  },
+  {
+   "pid": "100096399850",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/100096399850.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/3(13)_manual corrected/100096399850_0000.nii.gz",
+   "seg_round": 3,
+   "img_round": 3,
+   "shape": [
+    512,
+    512,
+    172
+   ],
+   "zoom": [
+    0.3828,
+    0.3828,
+    0.7
+   ],
+   "seg_folder": "3(13)_manual corrected",
+   "case_id": "100096399850"
+  },
+  {
+   "pid": "100096554926",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/5(9)_manual corrected/100096554926.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/5(9)_manual corrected/100096554926_0000.nii.gz",
+   "seg_round": 5,
+   "img_round": 5,
+   "shape": [
+    512,
+    512,
+    278
+   ],
+   "zoom": [
+    0.4102,
+    0.4102,
+    0.7
+   ],
+   "seg_folder": "5(9)_manual corrected",
+   "case_id": "100096554926"
+  },
+  {
+   "pid": "100096763527",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/100096763527.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/3(13)_manual corrected/100096763527_0000.nii.gz",
+   "seg_round": 3,
+   "img_round": 3,
+   "shape": [
+    512,
+    512,
+    178
+   ],
+   "zoom": [
+    0.334,
+    0.334,
+    0.7
+   ],
+   "seg_folder": "3(13)_manual corrected",
+   "case_id": "100096763527"
+  },
+  {
+   "pid": "100096896749",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100096896749.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/4(16)_manual corrected/100096896749_0000.nii.gz",
+   "seg_round": 4,
+   "img_round": 4,
+   "shape": [
+    512,
+    512,
+    135
+   ],
+   "zoom": [
+    0.3105,
+    0.3105,
+    0.75
+   ],
+   "seg_folder": "4(16)_manual corrected",
+   "case_id": "100096896749"
+  },
+  {
+   "pid": "100097455750",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/5(9)_manual corrected/100097455750.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/5(9)_manual corrected/100097455750_0000.nii.gz",
+   "seg_round": 5,
+   "img_round": 5,
+   "shape": [
+    512,
+    512,
+    157
+   ],
+   "zoom": [
+    0.3613,
+    0.3613,
+    0.75
+   ],
+   "seg_folder": "5(9)_manual corrected",
+   "case_id": "100097455750"
+  },
+  {
+   "pid": "100098278763",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/100098278763.nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/3(13)_manual corrected/100098278763_0000.nii.gz",
+   "seg_round": 3,
+   "img_round": 3,
+   "shape": [
+    512,
+    512,
+    137
+   ],
+   "zoom": [
+    0.3672,
+    0.3672,
+    0.75
+   ],
+   "seg_folder": "3(13)_manual corrected",
+   "case_id": "100098278763"
+  }
+ ],
+ "superseded": [
+  {
+   "pid": "000005736178",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/0(9)_all manual/000005736178(1).nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/0(9)_all manual/000005736178(1).nii.gz",
+   "seg_round": 0,
+   "img_round": 0,
+   "shape": [
+    512,
+    512,
+    171
+   ],
+   "zoom": [
+    0.4004,
+    0.4004,
+    0.7
+   ],
+   "seg_folder": "0(9)_all manual"
+  },
+  {
+   "pid": "100006897274",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/0(9)_all manual/100006897274(3).nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/0(9)_all manual/100006897274(3).nii.gz",
+   "seg_round": 0,
+   "img_round": 0,
+   "shape": [
+    512,
+    512,
+    136
+   ],
+   "zoom": [
+    0.3379,
+    0.3379,
+    0.75
+   ],
+   "seg_folder": "0(9)_all manual"
+  },
+  {
+   "pid": "100091042315",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/1(7)_manual corrected/100091042315(5).nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/1(7)_manual corrected/100091042315(5).nii.gz",
+   "seg_round": 1,
+   "img_round": 1,
+   "shape": [
+    512,
+    512,
+    161
+   ],
+   "zoom": [
+    0.3906,
+    0.3906,
+    0.75
+   ],
+   "seg_folder": "1(7)_manual corrected"
+  },
+  {
+   "pid": "100094921739",
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/1(7)_manual corrected/100094921739(2).nii.gz",
+   "img": "/Users/liangyang/Desktop/HIL/DATA/1(7)_manual corrected/100094921739(2).nii.gz",
+   "seg_round": 1,
+   "img_round": 1,
+   "shape": [
+    512,
+    512,
+    149
+   ],
+   "zoom": [
+    0.334,
+    0.334,
+    0.75
+   ],
+   "seg_folder": "1(7)_manual corrected"
+  }
+ ],
+ "orphan_masks": [
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/0(9)_all manual/10004156087(18).nii.gz",
+   "pid": "10004156087",
+   "rnd": 0,
+   "shape": [
+    512,
+    512,
+    181
+   ],
+   "zoom": [
+    0.377,
+    0.377,
+    0.7
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/0(9)_all manual/100058928795(19).nii.gz",
+   "pid": "100058928795",
+   "rnd": 0,
+   "shape": [
+    512,
+    512,
+    152
+   ],
+   "zoom": [
+    0.375,
+    0.375,
+    0.7
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/1(7)_manual corrected/100092408051(13).nii.gz",
+   "pid": "100092408051",
+   "rnd": 1,
+   "shape": [
+    512,
+    512,
+    192
+   ],
+   "zoom": [
+    0.3301,
+    0.3301,
+    0.7
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/1(7)_manual corrected/100093396750.nii.gz",
+   "pid": "100093396750",
+   "rnd": 1,
+   "shape": [
+    512,
+    512,
+    121
+   ],
+   "zoom": [
+    0.3418,
+    0.3418,
+    0.7058
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/1(7)_manual corrected/100094581624(21).nii.gz",
+   "pid": "100094581624",
+   "rnd": 1,
+   "shape": [
+    512,
+    512,
+    181
+   ],
+   "zoom": [
+    0.3789,
+    0.3789,
+    0.7
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/1(7)_manual corrected/100095356299(16).nii.gz",
+   "pid": "100095356299",
+   "rnd": 1,
+   "shape": [
+    512,
+    512,
+    175
+   ],
+   "zoom": [
+    0.3906,
+    0.3906,
+    0.7
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/1(7)_manual corrected/100095493282(14).nii.gz",
+   "pid": "100095493282",
+   "rnd": 1,
+   "shape": [
+    512,
+    512,
+    191
+   ],
+   "zoom": [
+    0.3906,
+    0.3906,
+    0.7
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/100066303817.nii.gz",
+   "pid": "100066303817",
+   "rnd": 3,
+   "shape": [
+    512,
+    512,
+    182
+   ],
+   "zoom": [
+    0.3393,
+    0.3393,
+    0.6
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/100090707272.nii.gz",
+   "pid": "100090707272",
+   "rnd": 3,
+   "shape": [
+    512,
+    512,
+    167
+   ],
+   "zoom": [
+    0.2734,
+    0.2734,
+    0.75
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/100096604168.nii.gz",
+   "pid": "100096604168",
+   "rnd": 3,
+   "shape": [
+    512,
+    512,
+    155
+   ],
+   "zoom": [
+    0.3281,
+    0.3281,
+    0.7
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/100096669732.nii.gz",
+   "pid": "100096669732",
+   "rnd": 3,
+   "shape": [
+    512,
+    512,
+    155
+   ],
+   "zoom": [
+    0.3281,
+    0.3281,
+    0.7
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/3(13)_manual corrected/100098309022.nii.gz",
+   "pid": "100098309022",
+   "rnd": 3,
+   "shape": [
+    512,
+    512,
+    163
+   ],
+   "zoom": [
+    0.3457,
+    0.3457,
+    0.75
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100082590793.nii.gz",
+   "pid": "100082590793",
+   "rnd": 4,
+   "shape": [
+    512,
+    512,
+    175
+   ],
+   "zoom": [
+    0.3652,
+    0.3652,
+    0.7
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100094991070.nii.gz",
+   "pid": "100094991070",
+   "rnd": 4,
+   "shape": [
+    512,
+    512,
+    206
+   ],
+   "zoom": [
+    0.4141,
+    0.4141,
+    0.7
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100095188718.nii.gz",
+   "pid": "100095188718",
+   "rnd": 4,
+   "shape": [
+    512,
+    512,
+    145
+   ],
+   "zoom": [
+    0.3574,
+    0.3574,
+    0.7
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100095190003.nii.gz",
+   "pid": "100095190003",
+   "rnd": 4,
+   "shape": [
+    512,
+    512,
+    176
+   ],
+   "zoom": [
+    0.3906,
+    0.3906,
+    0.7
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100095197008.nii.gz",
+   "pid": "100095197008",
+   "rnd": 4,
+   "shape": [
+    512,
+    512,
+    156
+   ],
+   "zoom": [
+    0.3516,
+    0.3516,
+    0.7
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100095615926.nii.gz",
+   "pid": "100095615926",
+   "rnd": 4,
+   "shape": [
+    512,
+    512,
+    107
+   ],
+   "zoom": [
+    0.3086,
+    0.3086,
+    1.25
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100095753578.nii.gz",
+   "pid": "100095753578",
+   "rnd": 4,
+   "shape": [
+    512,
+    512,
+    185
+   ],
+   "zoom": [
+    0.4082,
+    0.4082,
+    0.7
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100095788145.nii.gz",
+   "pid": "100095788145",
+   "rnd": 4,
+   "shape": [
+    512,
+    512,
+    156
+   ],
+   "zoom": [
+    0.3906,
+    0.3906,
+    0.75
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/4(16)_manual corrected/100096762461.nii.gz",
+   "pid": "100096762461",
+   "rnd": 4,
+   "shape": [
+    512,
+    512,
+    423
+   ],
+   "zoom": [
+    0.5426,
+    0.5426,
+    0.6
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/5(9)_manual corrected/100090000233.nii.gz",
+   "pid": "100090000233",
+   "rnd": 5,
+   "shape": [
+    512,
+    512,
+    186
+   ],
+   "zoom": [
+    0.3906,
+    0.3906,
+    0.7
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/5(9)_manual corrected/100095356299.nii.gz",
+   "pid": "100095356299",
+   "rnd": 5,
+   "shape": [
+    512,
+    512,
+    175
+   ],
+   "zoom": [
+    0.3906,
+    0.3906,
+    0.7
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/5(9)_manual corrected/100096431018.nii.gz",
+   "pid": "100096431018",
+   "rnd": 5,
+   "shape": [
+    512,
+    512,
+    133
+   ],
+   "zoom": [
+    0.3535,
+    0.3535,
+    0.75
+   ]
+  },
+  {
+   "seg": "/Users/liangyang/Desktop/HIL/SEG/5(9)_manual corrected/100096925860.nii.gz",
+   "pid": "100096925860",
+   "rnd": 5,
+   "shape": [
+    512,
+    512,
+    149
+   ],
+   "zoom": [
+    0.3418,
+    0.3418,
+    0.7
+   ]
+  }
+ ],
+ "n_images": 27,
+ "n_masks": 54,
+ "labels": {
+  "0": "background",
+  "1": "nasal_cavity",
+  "2": "ethmoid",
+  "3": "maxillary",
+  "4": "sphenoid",
+  "5": "frontal"
+ }
+}
