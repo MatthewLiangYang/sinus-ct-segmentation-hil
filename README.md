@@ -9,19 +9,19 @@ worth a clinician's time, and which already-labelled scans look mis-annotated.
 *Left: the raw CT. Middle: the manual annotation in `SEG/`. Right: what the
 trained model produces unaided on the same scan.*
 
-> ### ⚠️ Privacy — read before cloning or forking
+> ### ⚠️ Data notice
 >
-> **Keep this repository private.** `DATA/` and `SEG/` (raw CT volumes and
-> annotations) are excluded by `.gitignore` and must never be committed — the
-> filenames are medical record numbers. The imaging is distributed through the
-> team Google Drive instead; see [Getting the data](#getting-the-data).
+> **The CT volumes and annotations are not in this repository.** `DATA/` and
+> `SEG/` are excluded by `.gitignore` and are distributed separately to the
+> project team; see [Getting the data](#getting-the-data).
 >
-> What *is* committed still carries patient identifiers: `work/manifest.json`,
-> `work/missing_images.csv`, `work/disease_metrics_manual.json` and the example
-> figures under `work/review/` and `work/pred/` contain MRNs and real patient
-> imaging. Sagittal CT in particular permits facial reconstruction. Do not make
-> this repository public, fork it to a personal account, or paste these files
-> into external services.
+> Derived artefacts that *are* committed still reference the source study
+> identifiers — `work/manifest.json`, `work/missing_images.csv`,
+> `work/disease_metrics_manual.json`, the per-fold validation JSON, and the
+> example figures under `work/review/` and `work/pred/`, which show real CT
+> slices. Publication of this material was reviewed and cleared by the data
+> owner. Anyone reusing these files is responsible for confirming that their own
+> use is covered by the applicable data-use agreement.
 
 ---
 
@@ -353,9 +353,11 @@ MPS was measured ~4.4× faster than CPU on an M2 Max.
 
 ### Getting the data
 
-**The imaging is not in this repository — it is on the team Google Drive**, which
-everyone already has access to. It is deliberately kept out of git: it is patient
+**The imaging is not in this repository — it is held by the project team**, who
+already have access to it. It is deliberately kept out of git: it is patient
 imaging, it is 1.2 GB, and one volume exceeds GitHub's 100 MB per-file limit.
+External readers will not be able to retrain or reproduce the audits without
+their own data, but the committed checkpoint runs on any sinus CT.
 
 Download the two folders from Drive and place them at the repository root,
 keeping the round-folder names exactly as they are:
