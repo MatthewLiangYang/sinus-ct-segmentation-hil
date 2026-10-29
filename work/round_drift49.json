@@ -1,0 +1,182 @@
+[
+ {
+  "case_id": "100006897274",
+  "old_round": 0,
+  "new_round": 4,
+  "nasal_cavity": {
+   "old_cm3": 28.52,
+   "new_cm3": 28.68,
+   "rel_change": 0.006,
+   "dice": 0.9482
+  },
+  "ethmoid": {
+   "old_cm3": 4.81,
+   "new_cm3": 6.37,
+   "rel_change": 0.325,
+   "dice": 0.7747
+  },
+  "maxillary": {
+   "old_cm3": 26.38,
+   "new_cm3": 26.24,
+   "rel_change": 0.005,
+   "dice": 0.9847
+  },
+  "sphenoid": {
+   "old_cm3": 2.3,
+   "new_cm3": 0.46,
+   "rel_change": 0.802,
+   "dice": 0.321
+  },
+  "frontal": {
+   "old_cm3": 6.59,
+   "new_cm3": 6.54,
+   "rel_change": 0.007,
+   "dice": 0.9676
+  },
+  "max_rel_change": 0.802
+ },
+ {
+  "case_id": "100094921739",
+  "old_round": 1,
+  "new_round": 4,
+  "nasal_cavity": {
+   "old_cm3": 37.72,
+   "new_cm3": 37.72,
+   "rel_change": 0.0,
+   "dice": 0.9996
+  },
+  "ethmoid": {
+   "old_cm3": 4.89,
+   "new_cm3": 7.81,
+   "rel_change": 0.597,
+   "dice": 0.763
+  },
+  "maxillary": {
+   "old_cm3": 47.52,
+   "new_cm3": 47.53,
+   "rel_change": 0.0,
+   "dice": 0.9999
+  },
+  "sphenoid": {
+   "old_cm3": 13.94,
+   "new_cm3": 11.32,
+   "rel_change": 0.188,
+   "dice": 0.8944
+  },
+  "frontal": {
+   "old_cm3": 9.75,
+   "new_cm3": 9.47,
+   "rel_change": 0.029,
+   "dice": 0.9817
+  },
+  "max_rel_change": 0.597
+ },
+ {
+  "case_id": "100095356299",
+  "old_round": 1,
+  "new_round": 5,
+  "nasal_cavity": {
+   "old_cm3": 45.16,
+   "new_cm3": 45.18,
+   "rel_change": 0.001,
+   "dice": 0.9995
+  },
+  "ethmoid": {
+   "old_cm3": 14.11,
+   "new_cm3": 17.1,
+   "rel_change": 0.212,
+   "dice": 0.8987
+  },
+  "maxillary": {
+   "old_cm3": 69.78,
+   "new_cm3": 69.78,
+   "rel_change": 0.0,
+   "dice": 1.0
+  },
+  "sphenoid": {
+   "old_cm3": 15.81,
+   "new_cm3": 13.1,
+   "rel_change": 0.172,
+   "dice": 0.906
+  },
+  "frontal": {
+   "old_cm3": 17.45,
+   "new_cm3": 17.02,
+   "rel_change": 0.024,
+   "dice": 0.9788
+  },
+  "max_rel_change": 0.212
+ },
+ {
+  "case_id": "000005736178",
+  "old_round": 0,
+  "new_round": 4,
+  "nasal_cavity": {
+   "old_cm3": 44.93,
+   "new_cm3": 45.55,
+   "rel_change": 0.014,
+   "dice": 0.9509
+  },
+  "ethmoid": {
+   "old_cm3": 7.58,
+   "new_cm3": 7.55,
+   "rel_change": 0.005,
+   "dice": 0.9285
+  },
+  "maxillary": {
+   "old_cm3": 53.09,
+   "new_cm3": 52.94,
+   "rel_change": 0.003,
+   "dice": 0.986
+  },
+  "sphenoid": {
+   "old_cm3": 15.48,
+   "new_cm3": 15.43,
+   "rel_change": 0.004,
+   "dice": 0.9769
+  },
+  "frontal": {
+   "old_cm3": 5.6,
+   "new_cm3": 5.62,
+   "rel_change": 0.004,
+   "dice": 0.9634
+  },
+  "max_rel_change": 0.014
+ },
+ {
+  "case_id": "100091042315",
+  "old_round": 1,
+  "new_round": 4,
+  "nasal_cavity": {
+   "old_cm3": 34.41,
+   "new_cm3": 34.45,
+   "rel_change": 0.001,
+   "dice": 0.9984
+  },
+  "ethmoid": {
+   "old_cm3": 6.46,
+   "new_cm3": 6.51,
+   "rel_change": 0.008,
+   "dice": 0.9862
+  },
+  "maxillary": {
+   "old_cm3": 52.72,
+   "new_cm3": 52.72,
+   "rel_change": 0.0,
+   "dice": 1.0
+  },
+  "sphenoid": {
+   "old_cm3": 5.1,
+   "new_cm3": 5.1,
+   "rel_change": 0.0,
+   "dice": 1.0
+  },
+  "frontal": {
+   "old_cm3": 6.79,
+   "new_cm3": 6.69,
+   "rel_change": 0.014,
+   "dice": 0.992
+  },
+  "max_rel_change": 0.014
+ }
+]

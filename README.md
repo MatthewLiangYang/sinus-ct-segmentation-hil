@@ -30,11 +30,11 @@ trained model produces unaided on the same scan.*
 | | |
 |---|---|
 | **Task** | Segment 5 paranasal sinus structures in head CT |
-| **Data** | 25 usable annotated scans (24 patients) — see §1 |
-| **Model** | 3D DynUNet, 5.69M params, `work/runs/base_fold0/best.pt` (22 MB) |
-| **Result** | **Mean Dice 0.865** on 5 held-out scans (fold 0 of 5; folds 1–4 not yet run) |
+| **Data** | **49 annotated scans (48 patients)** — every mask now has its CT, see §1 |
+| **Committed model** | 3D DynUNet, 5.69M params, `work/runs/base_fold0/best.pt` (22 MB) |
+| **Committed result** | Mean Dice 0.865 on 5 held-out scans — **trained on 25 scans, superseded, see §3** |
+| **In progress** | Retraining on all 49 scans (39 train / 10 val). Numbers will be updated when it lands. |
 | **Status** | Segmentation works. Disease classification is **blocked on missing labels** — see §5 |
-| **Biggest win available** | Recover 25 orphaned masks → dataset doubles, zero code changes — see §1.3 |
 
 ---
 
@@ -43,7 +43,7 @@ trained model produces unaided on the same scan.*
 ### 1.1 What it is
 
 ```
-DATA/  27 CT volumes      512×512×(89–423), in-plane 0.27–0.54 mm, slice 0.6–1.25 mm, LPS
+DATA/  54 CT volumes      512×512×(89–423), in-plane 0.27–0.54 mm, slice 0.6–1.25 mm, LPS
 SEG/   54 annotation masks 6 classes (background + 5 structures), same grid as the CT
 ```
 
@@ -75,29 +75,45 @@ count, intensity) and then confirmed by rendering a mid-sagittal view:
 > write new analysis code against these labels, verify against
 > `work/review/label_identity_sagittal.png` rather than trusting axis names.
 
-### 1.3 Usable case count — and 25 masks that are being wasted
+### 1.3 Usable case count
 
 ```
-27 CT volumes
+54 CT volumes
 54 annotation masks
 ─────────────────────────────────────────────
-25 usable (image, mask) pairs  ← what the model is trained on
- 4 superseded older annotations (same scan re-annotated in a later round)
-25 masks with NO matching CT   ← recoverable
+49 usable (image, mask) pairs  ← what the model trains on
+ 5 superseded older annotations (same scan re-annotated in a later round)
+ 0 masks with no matching CT
 ```
 
-Those 25 orphaned masks are finished annotation work with no image attached.
-Recovering the source series from PACS roughly **doubles the training set** and
-requires no code changes.
+Run `python scripts/missing_images.py` to re-verify; it writes
+`work/missing_images.csv`, which is currently empty.
 
-```bash
-python scripts/missing_images.py     # writes work/missing_images.csv
-```
+> **Historical note, kept because it cost real time.** An earlier pass of this
+> analysis reported only 25 usable pairs and 25 masks with no CT. That was wrong:
+> the local `DATA/` folder was an **incomplete download** of the shared folder.
+> Google Drive's "download folder" zips large folders and can drop files without
+> raising an error — `SEG/` is 11 MB and arrived intact, `DATA/` is 2.5 GB and
+> arrived about half complete. The per-round counts are the giveaway: the number
+> in each folder name is the number of files it should contain
+> (`0(9)` → 9, `1(7)` → 7, `3(13)` → 13, `4(16)` → 16, `5(9)` → 9).
+>
+> **After downloading, check the counts before anything else:**
+>
+> ```bash
+> for d in DATA SEG; do for s in "$d"/*/; do
+>   echo "$(ls "$s"*.nii.gz 2>/dev/null | wc -l)  $s"; done; done
+> ```
+>
+> Then `python -m sinus_hil.manifest` should report 49 pairs and 0 unmatched
+> masks. Prefer Google Drive for desktop over the browser's folder download.
 
-The CSV lists patient ID, round, expected shape and expected slice thickness for
-each missing series, which is enough to identify it in PACS. Drop the exported
-`.nii.gz` into the matching `DATA/` round folder, rerun `manifest` and
-`preprocess`, and it is picked up automatically.
+### 1.4 One malformed filename
+
+`DATA/1(7)_manual corrected/100093396750(.nii.gz` has an unclosed bracket. It is
+like that in the shared folder and re-downloading reproduces it, so
+`manifest.patient_id()` absorbs the malformation rather than requiring a rename.
+All three forms — `ID(18)`, `ID(`, `ID()` — now parse to the same patient ID.
 
 ---
 
@@ -137,9 +153,16 @@ volumetry. The abandoned 0.6 mm run is excluded from the repo by `.gitignore`.
 
 ## 3. Results
 
-### 3.1 Fold 0
+> **Read this first.** The committed checkpoint was trained on **25 scans**, back
+> when half the CT volumes were missing from the local copy (§1.3). The dataset
+> is now complete at **49 scans**, and a retrain on all of them is running. The
+> numbers below are the 25-scan result and will be replaced. They are still the
+> numbers the committed `best.pt` produces, so they are not removed.
+
+### 3.1 Fold 0 — 25-scan model (committed checkpoint)
 
 Trained 120 epochs × 50 iterations on an Apple M2 Max (97 s/epoch, 3 h 15 m total).
+20 training / 5 validation scans.
 
 | Structure | Dice |
 |---|---|
@@ -173,15 +196,34 @@ training** (zero overlap with the 20 training scans, grouped by patient).
 It is **not** a measure of clinical correctness — it is agreement with one human
 annotation, which §4.1 shows is itself not reproducible for every structure.
 
-### 3.3 Caveat on scope
+### 3.3 Caveats on scope
 
-**This is one fold.** 20 training / 5 validation scans. The number is usable for
-an internal report if labelled as single-fold, but it is not a cross-validated
-result. Folds 1–4 are implemented and unrun (~3.2 h each):
+Two, and both matter when quoting this number.
+
+**It is one fold.** 20 training / 5 validation scans. Reportable internally if
+labelled as single-fold; not a cross-validated result. With the complete dataset
+each fold is now 39 train / 10 val, so the folds are worth rerunning:
 
 ```bash
-for f in 1 2 3 4; do python -m sinus_hil.train --fold $f --tag base; done
+for f in 0 1 2 3 4; do python -m sinus_hil.train --fold $f --tag d49; done
 ```
+
+**The 5 validation scans are not a held-out test set.** The checkpoint was
+selected by its score on those same scans, so 0.865 is optimistically biased.
+At 25 scans there was no room to carve out a third split; at 49 there is, and a
+true test set should be taken before any number is published.
+
+### 3.4 49-scan retrain — in progress
+
+Running now: fold 0, 39 train / 10 validation, same architecture and schedule as
+above so that dataset size is the only variable changed.
+
+```bash
+python -m sinus_hil.train --fold 0 --tag d49     # -> work/runs/d49_fold0/
+```
+
+Progress is in `work/runs/train_d49_fold0.log`. This section will carry the
+comparison against 0.865 once it finishes.
 
 ---
 
@@ -189,18 +231,29 @@ for f in 1 2 3 4; do python -m sinus_hil.train --fold $f --tag base; done
 
 ### 4.1 Annotation agreement is the real ceiling — and it is now measured ⚠️
 
-Four scans in this dataset were annotated **twice**, in different rounds, on the
+Five scans in this dataset were annotated **twice**, in different rounds, on the
 **identical voxel grid**. Comparing the two human annotations against each other
 gives a direct estimate of inter-round annotator agreement. **No model is
 involved in this measurement.**
 
-| Structure | Inter-round Dice (4 scans) | |
-|---|---|---|
-| Nasal cavity | 0.95 – 1.00 | stable |
-| Maxillary | 0.98 – 1.00 | stable |
-| Frontal | 0.96 – 0.99 | stable |
-| **Ethmoid** | **0.76 – 0.99** | unstable |
-| **Sphenoid** | **0.32 – 1.00** | highly unstable |
+| Structure | Inter-round Dice (5 scans) | Mean | |
+|---|---|---|---|
+| Maxillary | 0.985 – 1.000 | 0.994 | stable |
+| Nasal cavity | 0.948 – 1.000 | 0.979 | stable |
+| Frontal | 0.963 – 0.992 | 0.977 | stable |
+| **Ethmoid** | **0.763 – 0.986** | **0.870** | unstable |
+| **Sphenoid** | **0.321 – 1.000** | **0.820** | highly unstable |
+
+Per scan (`work/round_drift49.json`):
+
+```
+case              rounds   nasal  ethmoid  maxillary  sphenoid  frontal
+100006897274       0->4     0.948   0.775     0.985     0.321    0.968
+100094921739       1->4     1.000   0.763     1.000     0.894    0.982
+100095356299       1->5     1.000   0.899     1.000     0.906    0.979
+000005736178       0->4     0.951   0.928     0.986     0.977    0.963
+100091042315       1->4     0.998   0.986     1.000     1.000    0.992
+```
 
 Worst case, one scan, sphenoid sinus:
 
@@ -239,6 +292,18 @@ Reproduce:
 python -c "from sinus_hil.review import round_drift; import json; print(json.dumps(round_drift(), ensure_ascii=False, indent=1))"
 ```
 
+### 4.1b Open question: are the later annotations model output?
+
+Per the annotation team, the masks that arrived in the later rounds were produced
+by running an **earlier segmentation model** over the scans. The folder names say
+`manual corrected`, and the inter-round Dice above shows humans did edit them
+(otherwise rounds would not disagree). But it is worth confirming explicitly
+whether **every** later-round mask was reviewed by a human.
+
+It matters: training on uncorrected predictions from a previous model distils
+that model's errors into the new one, and inflates validation scores, because the
+new model is rewarded for imitating the old model rather than the annotator.
+
 ### 4.2 The annotations delineate the air cavity, not the bony sinus
 
 Mean intensity inside every labelled structure is −600 to −940 HU, with
@@ -271,20 +336,42 @@ round and fits the HIL loop directly.
 ### 4.3 Anatomical priors give a label-free correctness check
 
 Anatomy that holds across the whole cohort can be turned into an automatic check
-that needs no ground truth:
+that needs no ground truth. Measured across all 49 annotations, at the cache
+resolution of 0.8 mm, counting components larger than 0.05 cm³:
 
-```
-nasal cavity   exactly 1 connected component      (29/29 masks comply)
-maxillary      exactly 2 (bilateral)              (28/29 comply)
-ethmoid        2–11 components (honeycomb)
-per-structure volume within an expected range
-left-right symmetry within an expected range
-```
+| Structure | Components | Volume (cm³) | Prior used |
+|---|---|---|---|
+| Nasal cavity | **1–1 in 49/49** | 27.1 – 60.0 | (1, 2) |
+| Ethmoid | 1 – 7 | 5.0 – 17.1 | (1, 15) |
+| Maxillary | **2–2 in 49/49** | 22.5 – 72.9 | (2, 3) |
+| Sphenoid | 1 – 3 | 0.5 – 34.6 | (1, 5) |
+| Frontal | 1 – 4 | 2.1 – 32.2 | (0, 6) |
 
-Measured penalty (0 = perfectly plausible): **human annotations 0.016, model
-output 0.036.** This is what makes it possible to flag a bad prediction on a scan
-that has no annotation, and it is the component that catches *confidently wrong*
-output — which entropy-based uncertainty by construction cannot.
+The nasal cavity is single-component and the maxillary sinus is exactly bilateral
+in every single annotation, so those bounds are kept deliberately tight — they
+are the most informative label-free checks available. A model output with seven
+maxillary fragments is wrong, and you can know that without ground truth.
+
+Measured penalty (0 = perfectly plausible) on the 49 human annotations:
+**mean 0.0045, median 0.0009**, one case above 0.05. A clean baseline like this
+is what lets the signal flag genuine model failures, and it is the component
+that catches *confidently wrong* output — which entropy-based uncertainty by
+construction cannot.
+
+> **This table was previously wrong, and the bug is instructive.** The first
+> version of `ANAT_PRIOR` was calibrated on a 29-mask subset at native
+> resolution, counting components above a fixed *voxel count*. `anatomy_report`
+> measures on the 0.8 mm cache above a fixed *physical volume*. The two
+> thresholds differ by roughly an order of magnitude for the ethmoid's
+> honeycomb, so the stated range of 4–40 components was far too high:
+> **37 of 49 human annotations violated it.**
+>
+> The damage is not the cosmetic error. This signal is only useful because
+> human work scores near zero; with a miscalibrated baseline it penalises good
+> annotations and the active-learning ranking silently degrades. **If you change
+> the spacing, the fragment threshold, or the resolution at which this is
+> measured, recalibrate the priors against human annotations and check that the
+> mean penalty stays near zero.**
 
 ---
 
@@ -302,7 +389,7 @@ What *is* delivered is the complete quantitative pipeline feeding into one:
 * Per sinus, per side: air volume, envelope volume, focal opacification, mean and
   p90 HU, in-cavity soft-tissue fraction, left-right asymmetry, cohort normative
   z-score, composite involvement score.
-* **87-dimensional feature matrix**, `work/disease_features.npz`.
+* **87-dimensional feature matrix** over all 49 cases, `work/disease_features.npz`.
 * Cohort normative table, `work/normative.json`.
 * A 0–16 involvement total, deliberately **not** named Lund-Mackay (see below).
 
@@ -327,7 +414,7 @@ It imputes, fits gradient boosting, and reports stratified cross-validated AUC.
   Using the name would imply comparability with published scores. It is not.
 * **Thresholds (0.60 / 1.20) are chosen, not calibrated.** They must be re-derived
   against diagnosis labels before any clinical use.
-* **Focal opacification saturates.** Measured across all 50 maxillary sinuses:
+* **Focal opacification saturates.** Measured across the maxillary sinuses:
   median 0.013, max 0.029. Lund-Mackay's 0.15/0.85 cut-points would never fire.
   Uniform mucosal thickening shrinks the cavity proportionally, which is not a
   concavity, so bounded closing cannot detect it by construction. This is why the
@@ -355,9 +442,20 @@ MPS was measured ~4.4× faster than CPU on an M2 Max.
 
 **The imaging is not in this repository — it is held by the project team**, who
 already have access to it. It is deliberately kept out of git: it is patient
-imaging, it is 1.2 GB, and one volume exceeds GitHub's 100 MB per-file limit.
+imaging, it is 2.5 GB, and one volume exceeds GitHub's 100 MB per-file limit.
 External readers will not be able to retrain or reproduce the audits without
 their own data, but the committed checkpoint runs on any sinus CT.
+
+**Verify the download before using it.** Browser folder downloads from Drive can
+drop files silently; this cost a full analysis cycle once already (§1.3). The
+number in each round-folder name is the file count it should have:
+
+```bash
+for d in DATA SEG; do for s in "$d"/*/; do
+  echo "$(ls "$s"*.nii.gz 2>/dev/null | wc -l)  $s"; done; done
+# expect 9 / 7 / 13 / 16 / 9 in both DATA and SEG
+python -m sinus_hil.manifest      # expect 49 pairs, 0 unmatched masks
+```
 
 Download the two folders from Drive and place them at the repository root,
 keeping the round-folder names exactly as they are:
@@ -512,15 +610,22 @@ HTML worklists are in Chinese, matching the annotators' working language.
 
 ## 9. Recommended priorities
 
-1. **Recover the 25 orphaned CT series** (§1.3). Doubles the dataset, no code
-   changes, highest return on effort available.
+1. ~~Recover the orphaned CT series~~ — **done.** The dataset is complete at 49
+   scans; the earlier shortfall was an incomplete download, not missing data.
 2. **Agree a written convention for ethmoid and sphenoid boundaries** (§4.1).
-   Until this is fixed, model scores on those structures are capped by annotation
-   noise and further tuning is wasted effort.
-3. **Collect disease diagnosis labels** (§5). This — not model capacity — is the
-   bottleneck on the stated goal of automatic disease detection. Even binary
-   has/doesn't-have labels on the existing 25 cases would unblock the pipeline.
-4. **Add a bony sinus boundary annotation class** if standard Lund-Mackay scoring
+   Inter-annotator Dice is 0.870 and 0.820 on those two structures against
+   0.977–0.994 on the rest. Until this is fixed, model scores there are capped by
+   annotation noise and further tuning is wasted effort.
+3. **Confirm whether every later-round mask was human-reviewed** (§4.1b). They
+   originate from an earlier model's output; uncorrected predictions used as
+   training targets would distil that model's errors and inflate validation.
+4. **Collect disease diagnosis labels** (§5). This — not model capacity — is the
+   bottleneck on automatic disease detection. Even binary has/doesn't-have labels
+   on the existing 49 cases would unblock the pipeline.
+5. **Carve out a true held-out test set** (§3.3). At 49 scans this is finally
+   affordable, and the current number is selection-biased without it.
+6. **Run all 5 folds on the complete dataset** for a citable cross-validated
+   number, and **run the AL back-test** (§6) to confirm active learning earns its
+   complexity.
+7. **Add a bony sinus boundary annotation class** if standard Lund-Mackay scoring
    is required (§4.2).
-5. **Run folds 1–4** for a citable cross-validated number (§3.3), and
-   **run the AL back-test** (§6) to confirm active learning earns its complexity.

@@ -35,12 +35,25 @@ FG = list(range(1, NUM_CLASSES))
 # Per-structure anatomical priors, used for the plausibility / anomaly score.
 # Format: (expected connected-component range, expected volume range in cm^3).
 # Ranges come from the 29-mask audit; see README "Anatomical plausibility check".
+# Recalibrated against all 49 human annotations, measured exactly the way
+# anatomy_report measures them: on the 0.8 mm cache, counting components above
+# 0.05 cm^3. The first version of this table was calibrated on a 29-mask subset
+# at native resolution with a voxel-count threshold, which counts far more
+# ethmoid fragments; 37/49 human annotations violated it, which would have made
+# the anatomical signal penalise good work and corrupt the AL ranking.
+#
+# Observed across 49 annotations (components / volume cm^3):
+#   nasal 1~1 / 27.1-60.0   ethmoid 1~7 / 5.0-17.1   maxillary 2~2 / 22.5-72.9
+#   sphenoid 1~3 / 0.5-34.6   frontal 1~4 / 2.1-32.2
+# Nasal cavity is single-component and maxillary is exactly bilateral in 49/49,
+# so those bounds are kept tight on purpose: they are the most informative
+# label-free checks available.
 ANAT_PRIOR = {
-    1: ((1, 4),   (10.0, 80.0)),
-    2: ((4, 40),  (2.0,  30.0)),
-    3: ((1, 4),   (10.0, 110.0)),
-    4: ((1, 4),   (1.0,  35.0)),   # sphenoid
-    5: ((0, 4),   (0.0,  40.0)),   # frontal may be aplastic/hypoplastic -> lower bound 0
+    1: ((1, 2),   (15.0, 85.0)),   # nasal cavity: exactly 1 component in 49/49
+    2: ((1, 15),  (2.5,  30.0)),   # ethmoid: honeycomb, component count varies
+    3: ((2, 3),   (13.0, 110.0)),  # maxillary: exactly 2 (bilateral) in 49/49
+    4: ((1, 5),   (0.2,  50.0)),   # sphenoid: can be hypoplastic (min seen 0.5)
+    5: ((0, 6),   (0.0,  48.0)),   # frontal: may be aplastic -> lower bound 0
 }
 
 

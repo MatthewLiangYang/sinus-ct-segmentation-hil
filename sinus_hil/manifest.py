@@ -18,7 +18,11 @@ ROUND_RE = re.compile(r"^(\d+)\(")
 def patient_id(path: str) -> str:
     b = os.path.basename(path).replace(".nii.gz", "")
     b = re.sub(r"_0000$", "", b)        # nnU-Net style channel suffix
-    b = re.sub(r"\(\d+\)$", "", b)      # trailing sequence number in the filename
+    # Trailing sequence marker. Tolerant of malformed ones: at least one file in
+    # the source data is named "100093396750(.nii.gz" with an unclosed bracket,
+    # and re-downloading reproduces it, so the parser absorbs it rather than
+    # requiring the file to be renamed.
+    b = re.sub(r"\(\d*\)?$", "", b)
     return b
 
 
