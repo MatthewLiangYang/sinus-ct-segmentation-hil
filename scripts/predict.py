@@ -6,7 +6,7 @@ Slicer or ITK-SNAP), quantitative sinus metrics, an anatomical plausibility
 check, and a PNG sheet of the slices most worth human review.
 
 Usage:
-  python scripts/predict.py --ckpt work/runs/base_fold0/best.pt --input /path/to/ct.nii.gz
+  python scripts/predict.py --ckpt work/runs/d49_fold0/best.pt --input /path/to/ct.nii.gz
   python scripts/predict.py --ckpt ... --input /path/to/dir --outdir work/pred
 """
 from __future__ import annotations

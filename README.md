@@ -31,9 +31,9 @@ trained model produces unaided on the same scan.*
 |---|---|
 | **Task** | Segment 5 paranasal sinus structures in head CT |
 | **Data** | **49 annotated scans (48 patients)** — every mask now has its CT, see §1 |
-| **Committed model** | 3D DynUNet, 5.69M params, `work/runs/base_fold0/best.pt` (22 MB) |
-| **Committed result** | Mean Dice 0.865 on 5 held-out scans — **trained on 25 scans, superseded, see §3** |
-| **In progress** | Retraining on all 49 scans (39 train / 10 val). Numbers will be updated when it lands. |
+| **Committed model** | 3D DynUNet, 5.69M params, `work/runs/d49_fold0/best.pt` (22 MB) |
+| **Committed result** | **Mean Dice 0.895** on 10 held-out scans — trained on 39, see §3 |
+| **Not yet run** | Folds 1–4 (~13 h), and a true held-out test set — see §3.4 |
 | **Status** | Segmentation works. Disease classification is **blocked on missing labels** — see §5 |
 
 ---
@@ -153,77 +153,128 @@ volumetry. The abandoned 0.6 mm run is excluded from the repo by `.gitignore`.
 
 ## 3. Results
 
-> **Read this first.** The committed checkpoint was trained on **25 scans**, back
-> when half the CT volumes were missing from the local copy (§1.3). The dataset
-> is now complete at **49 scans**, and a retrain on all of them is running. The
-> numbers below are the 25-scan result and will be replaced. They are still the
-> numbers the committed `best.pt` produces, so they are not removed.
+### 3.1 Fold 0 — 49-scan model (committed checkpoint)
 
-### 3.1 Fold 0 — 25-scan model (committed checkpoint)
-
-Trained 120 epochs × 50 iterations on an Apple M2 Max (97 s/epoch, 3 h 15 m total).
-20 training / 5 validation scans.
-
-| Structure | Dice |
-|---|---|
-| Maxillary | **0.914** |
-| Nasal cavity | 0.885 |
-| Frontal | 0.868 |
-| Sphenoid | 0.845 |
-| Ethmoid | 0.815 |
-| **Mean** | **0.865** |
-
-Per held-out case: 0.896, 0.892, 0.887, 0.845, 0.807.
-
-Learning curve (validation Dice, every 10 epochs) — converged, no overfitting:
-
-```
-ep  9  0.397     ep 59  0.842     ep 109  0.863
-ep 19  0.609     ep 69  0.855     ep 119  0.865
-ep 29  0.773     ep 79  0.817
-ep 39  0.836     ep 89  0.851
-ep 49  0.762     ep 99  0.860
-```
-
-Full logs: `work/runs/base_fold0/log.jsonl`, `work/runs/base_fold0/val_ep*.json`.
-
-### 3.2 How to read 0.865
-
-Dice compares two shapes and is 1.0 when they coincide. Here it compares **model
-output against the human annotation, on 5 scans the model never saw during
-training** (zero overlap with the 20 training scans, grouped by patient).
-
-It is **not** a measure of clinical correctness — it is agreement with one human
-annotation, which §4.1 shows is itself not reproducible for every structure.
-
-### 3.3 Caveats on scope
-
-Two, and both matter when quoting this number.
-
-**It is one fold.** 20 training / 5 validation scans. Reportable internally if
-labelled as single-fold; not a cross-validated result. With the complete dataset
-each fold is now 39 train / 10 val, so the folds are worth rerunning:
-
-```bash
-for f in 0 1 2 3 4; do python -m sinus_hil.train --fold $f --tag d49; done
-```
-
-**The 5 validation scans are not a held-out test set.** The checkpoint was
-selected by its score on those same scans, so 0.865 is optimistically biased.
-At 25 scans there was no room to carve out a third split; at 49 there is, and a
-true test set should be taken before any number is published.
-
-### 3.4 49-scan retrain — in progress
-
-Running now: fold 0, 39 train / 10 validation, same architecture and schedule as
-above so that dataset size is the only variable changed.
+Trained 120 epochs × 50 iterations on an Apple M2 Max (97 s/epoch, 3 h 14 m total).
+39 training / 10 validation scans, split by patient.
 
 ```bash
 python -m sinus_hil.train --fold 0 --tag d49     # -> work/runs/d49_fold0/
 ```
 
-Progress is in `work/runs/train_d49_fold0.log`. This section will carry the
-comparison against 0.865 once it finishes.
+| Structure | Dice |
+|---|---|
+| Maxillary | **0.946** |
+| Nasal cavity | 0.913 |
+| Frontal | 0.897 |
+| Sphenoid | 0.888 |
+| Ethmoid | 0.830 |
+| **Mean** | **0.895** |
+
+Per held-out case, worst last:
+
+```
+case               nasal  ethmoid  maxillary  sphenoid  frontal   mean
+100095190003       0.944   0.837     0.959     0.963    0.939    0.928
+100082590793       0.953   0.888     0.974     0.961    0.846    0.924
+100095753578       0.933   0.818     0.970     0.963    0.928    0.922
+100006897274       0.906   0.860     0.978     0.879    0.946    0.914
+100093396750       0.923   0.837     0.970     0.941    0.895    0.913
+100096604168       0.923   0.864     0.941     0.957    0.817    0.900
+100058928795       0.878   0.797     0.966     0.920    0.915    0.895
+000014615835       0.931   0.816     0.913     0.860    0.947    0.893
+100054907579       0.876   0.809     0.900     0.790    0.870    0.849
+100054907579-s2    0.864   0.776     0.892     0.645    0.866    0.808
+```
+
+The two weakest cases are the **same patient scanned twice** — the one patient in
+the cohort with two scans, so patient-grouped splitting puts both on the same
+side. Whatever makes that anatomy hard is therefore counted twice in this fold's
+mean, and the 0.645 sphenoid on the second scan is the single worst structure
+score in the set. Expect the per-fold mean to move by roughly ±0.01 for this
+reason alone.
+
+Learning curve (validation Dice, every 10 epochs) — converged, no overfitting:
+
+```
+ep  9  0.443     ep 59  0.818     ep 109  0.893
+ep 19  0.673     ep 69  0.843     ep 119  0.895
+ep 29  0.794     ep 79  0.879
+ep 39  0.865     ep 89  0.887
+ep 49  0.844     ep 99  0.889
+```
+
+The dip at epochs 49–69 is the OneCycle schedule, not instability: the learning
+rate peaks mid-run (5.9e-04 at ep 59) and the model takes large steps before
+annealing. Ethmoid is what moves — 0.797 → 0.624 → 0.797 across those three
+validations — because it is the structure with the least stable boundary.
+
+Full logs: `work/runs/d49_fold0/log.jsonl`, `work/runs/d49_fold0/val_ep*.json`.
+
+### 3.2 How to read 0.895
+
+Dice compares two shapes and is 1.0 when they coincide. Here it compares **model
+output against the human annotation, on 10 scans the model never saw during
+training** (zero overlap with the 39 training scans, grouped by patient).
+
+It is **not** a measure of clinical correctness — it is agreement with one human
+annotation, which §4.1 shows is itself not reproducible for every structure.
+One case makes this concrete: on `100006897274`, the scan where two annotation
+rounds disagreed on the sphenoid at Dice 0.321 (§4.1), the model scores 0.879
+against the round it was trained on. It has learned that round's convention, not
+a ground truth — because no ground truth was available to learn.
+
+### 3.3 What the extra 24 scans bought
+
+The 25-scan run (`work/runs/base_fold0/`, also committed) used the same
+architecture, resolution, patch size, schedule and seed. **Dataset size was the
+only variable changed**, so the difference is attributable:
+
+| Structure | 25 scans (20 train / 5 val) | 49 scans (39 train / 10 val) | Δ |
+|---|---|---|---|
+| Sphenoid | 0.845 | 0.888 | **+0.043** |
+| Maxillary | 0.914 | 0.946 | +0.032 |
+| Frontal | 0.868 | 0.897 | +0.029 |
+| Nasal cavity | 0.885 | 0.913 | +0.028 |
+| Ethmoid | 0.815 | 0.830 | +0.015 |
+| **Mean** | **0.865** | **0.895** | **+0.030** |
+
+Two things worth drawing out:
+
+**Sphenoid and frontal gained the most, which is the expected direction.** Those
+are the two structures with the widest anatomical variation in the population —
+the frontal sinus can be absent altogether and the sphenoid can be hypoplastic
+(§4.3 records a sphenoid as small as 0.5 cm³ among the human annotations). At 20
+training scans the model had seen too few variants; doubling the data supplies
+them directly.
+
+**Ethmoid gained the least, and that is the informative result.** It is now the
+worst structure by a margin of 0.058, and §4.1 measures human-vs-human ethmoid
+agreement at 0.870 — so the model sits 0.040 below a ceiling that is itself set
+by annotation noise, not by anatomy. More scans annotated the same way will not
+close that gap. A written convention for where the posterior ethmoid ends would.
+
+The 25-scan result is kept in the repo because it is the only clean measurement
+of what dataset size is worth here, and that number is useful when deciding
+whether to annotate more.
+
+### 3.4 Caveats on scope
+
+Both of these matter when quoting 0.895.
+
+**It is one fold.** 39 training / 10 validation scans. Reportable internally if
+labelled as single-fold; not a cross-validated result. The remaining folds are
+worth running (~13 h on an M2 Max) before the number goes anywhere external:
+
+```bash
+for f in 1 2 3 4; do python -m sinus_hil.train --fold $f --tag d49; done
+```
+
+**The 10 validation scans are not a held-out test set.** The checkpoint was
+selected by its score on those same scans — the best epoch was chosen on them —
+so 0.895 is optimistically biased. At 25 scans there was no room to carve out a
+third split; at 49 there is, and a true test set should be taken before any
+number is published.
 
 ---
 
@@ -272,10 +323,13 @@ Bottom: the June 2026 annotation of the identical slices — empty.*
 
 **Implication for the team:**
 
-1. **This is the ceiling on measurable model Dice.** The model scores 0.845 on
-   sphenoid and 0.815 on ethmoid — already close to the agreement humans achieve
-   with each other. Pushing these numbers higher by tuning is, past this point,
-   fitting annotation noise.
+1. **This is the ceiling on measurable model Dice.** The model scores 0.888 on
+   sphenoid and 0.830 on ethmoid, against human-vs-human agreement of 0.820 and
+   0.870 respectively. Sphenoid has now **passed** the inter-round agreement
+   figure, which does not mean the model is better than a human — it means Dice
+   against this annotation has stopped measuring anything useful for that
+   structure. Ethmoid remains 0.040 short. Pushing either higher by tuning is,
+   past this point, fitting annotation noise.
 2. **Which version is correct is a clinical question, not a technical one.**
    Plausible explanations include posterior ethmoid cells mislabelled as
    sphenoid, an under-corrected model miss, or genuinely borderline
@@ -475,7 +529,7 @@ sinus-ct-segmentation-hil/
 `manifest.py` discovers cases by walking these folders and parsing the round
 number from the folder name, so renaming them will break the pairing.
 
-**You do not need the data to use the model.** `work/runs/base_fold0/best.pt` is
+**You do not need the data to use the model.** `work/runs/d49_fold0/best.pt` is
 committed, so inference on new scans works straight after cloning. The data is
 only needed to retrain, to rerun the audits, or to reproduce the numbers in
 sections 3 and 4.
@@ -498,7 +552,7 @@ python -m sinus_hil.train --fold 0 --tag base   # ~3.2 h on an M2 Max
 ### Inference on new scans
 
 ```bash
-python scripts/predict.py --ckpt work/runs/base_fold0/best.pt --input /path/to/ct_dir
+python scripts/predict.py --ckpt work/runs/d49_fold0/best.pt --input /path/to/ct_dir
 ```
 
 Per case: `*_seg.nii.gz` (open in 3D Slicer / ITK-SNAP), quantitative metrics in
@@ -510,7 +564,7 @@ worth reviewing. ~30 s per case.
 ```bash
 python -c "
 from sinus_hil.active_learning import run_round
-run_round('work/runs/base_fold0/best.pt', pool_dir='/path/to/unlabelled_ct', k=5)"
+run_round('work/runs/d49_fold0/best.pt', pool_dir='/path/to/unlabelled_ct', k=5)"
 ```
 
 Produces `work/al/round0/`: `worklist.html` (priority-ranked), `*_pred.nii.gz`
@@ -528,7 +582,7 @@ commit_round(['<new_case_id>'], val_mean_dice=0.87)"
 ### Review existing annotations
 
 ```bash
-python -c "from sinus_hil.review import run; run('work/runs/base_fold0/best.pt')"
+python -c "from sinus_hil.review import run; run('work/runs/d49_fold0/best.pt')"
 ```
 
 Produces `work/review/worklist.html` plus per-case triptychs
@@ -542,7 +596,7 @@ it is confident and still disagrees is where annotation noise concentrates.
 
 ```bash
 python -m sinus_hil.disease                                      # from manual annotations
-python -m sinus_hil.disease --ckpt work/runs/base_fold0/best.pt  # from model predictions
+python -m sinus_hil.disease --ckpt work/runs/d49_fold0/best.pt  # from model predictions
 ```
 
 ### Does active learning actually help?

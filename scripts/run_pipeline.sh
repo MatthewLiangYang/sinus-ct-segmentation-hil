@@ -15,9 +15,9 @@ echo "== 3/5 预处理到 0.8mm 各向同性 =="
 $PY -m sinus_hil.preprocess --jobs 5
 
 echo "== 4/5 训练 fold 0 (M2 Max 约 3.2 小时) =="
-$PY -m sinus_hil.train --fold 0 --tag base
+$PY -m sinus_hil.train --fold 0 --tag d49
 
-CKPT=work/runs/base_fold0/best.pt
+CKPT=work/runs/d49_fold0/best.pt
 echo "== 5/5 标注复核 + 疾病量化 =="
 $PY -c "from sinus_hil.review import run; run('$CKPT')"
 $PY -m sinus_hil.disease --ckpt "$CKPT"

@@ -6,3 +6,119 @@ ep001 loss=2.6801 lr=1.60e-04 97s
 ep002 loss=2.4329 lr=2.32e-04 97s
 ep003 loss=2.1413 lr=3.26e-04 97s
 ep004 loss=1.8771 lr=4.34e-04 97s
+ep005 loss=1.5866 lr=5.51e-04 97s
+ep006 loss=1.4103 lr=6.68e-04 97s
+ep007 loss=1.2274 lr=7.76e-04 97s
+ep008 loss=1.0221 lr=8.69e-04 97s
+ep009 loss=0.9208 lr=9.41e-04 96s | valDice=0.4432 {'nasal_cavity': 0.4536, 'ethmoid': 0.34, 'maxillary': 0.512, 'sphenoid': 0.48, 'frontal': 0.4303}
+ep010 loss=0.8742 lr=9.85e-04 97s
+ep011 loss=0.7636 lr=1.00e-03 97s
+ep012 loss=0.7385 lr=1.00e-03 97s
+ep013 loss=0.7088 lr=9.99e-04 97s
+ep014 loss=0.6917 lr=9.98e-04 97s
+ep015 loss=0.6383 lr=9.97e-04 97s
+ep016 loss=0.6010 lr=9.95e-04 97s
+ep017 loss=0.5797 lr=9.92e-04 97s
+ep018 loss=0.5477 lr=9.90e-04 97s
+ep019 loss=0.5823 lr=9.86e-04 97s | valDice=0.6733 {'nasal_cavity': 0.704, 'ethmoid': 0.6574, 'maxillary': 0.8789, 'sphenoid': 0.5604, 'frontal': 0.5657}
+ep020 loss=0.5561 lr=9.83e-04 97s
+ep021 loss=0.5186 lr=9.79e-04 97s
+ep022 loss=0.5282 lr=9.75e-04 97s
+ep023 loss=0.5411 lr=9.70e-04 97s
+ep024 loss=0.4891 lr=9.65e-04 97s
+ep025 loss=0.5114 lr=9.59e-04 97s
+ep026 loss=0.4912 lr=9.53e-04 97s
+ep027 loss=0.5129 lr=9.47e-04 96s
+ep028 loss=0.4524 lr=9.40e-04 97s
+ep029 loss=0.4858 lr=9.33e-04 97s | valDice=0.7937 {'nasal_cavity': 0.7712, 'ethmoid': 0.6764, 'maxillary': 0.8895, 'sphenoid': 0.8041, 'frontal': 0.8272}
+ep030 loss=0.4761 lr=9.25e-04 97s
+ep031 loss=0.4614 lr=9.18e-04 97s
+ep032 loss=0.5317 lr=9.09e-04 97s
+ep033 loss=0.4973 lr=9.01e-04 97s
+ep034 loss=0.4288 lr=8.92e-04 97s
+ep035 loss=0.4525 lr=8.83e-04 97s
+ep036 loss=0.4598 lr=8.73e-04 97s
+ep037 loss=0.4348 lr=8.64e-04 97s
+ep038 loss=0.4650 lr=8.53e-04 97s
+ep039 loss=0.4164 lr=8.43e-04 97s | valDice=0.8649 {'nasal_cavity': 0.8745, 'ethmoid': 0.7969, 'maxillary': 0.9312, 'sphenoid': 0.8213, 'frontal': 0.9004}
+ep040 loss=0.4354 lr=8.32e-04 97s
+ep041 loss=0.4441 lr=8.21e-04 97s
+ep042 loss=0.4845 lr=8.10e-04 97s
+ep043 loss=0.4604 lr=7.99e-04 97s
+ep044 loss=0.4139 lr=7.87e-04 97s
+ep045 loss=0.4190 lr=7.75e-04 97s
+ep046 loss=0.4583 lr=7.62e-04 97s
+ep047 loss=0.4781 lr=7.50e-04 97s
+ep048 loss=0.4362 lr=7.37e-04 97s
+ep049 loss=0.4251 lr=7.24e-04 97s | valDice=0.8441 {'nasal_cavity': 0.867, 'ethmoid': 0.7544, 'maxillary': 0.9254, 'sphenoid': 0.8075, 'frontal': 0.8662}
+ep050 loss=0.3988 lr=7.11e-04 97s
+ep051 loss=0.4904 lr=6.98e-04 97s
+ep052 loss=0.4198 lr=6.85e-04 97s
+ep053 loss=0.4038 lr=6.71e-04 97s
+ep054 loss=0.4199 lr=6.57e-04 97s
+ep055 loss=0.4371 lr=6.43e-04 97s
+ep056 loss=0.4144 lr=6.29e-04 97s
+ep057 loss=0.3907 lr=6.15e-04 97s
+ep058 loss=0.4024 lr=6.01e-04 97s
+ep059 loss=0.4157 lr=5.87e-04 97s | valDice=0.8178 {'nasal_cavity': 0.8555, 'ethmoid': 0.6241, 'maxillary': 0.9132, 'sphenoid': 0.8566, 'frontal': 0.8397}
+ep060 loss=0.4318 lr=5.73e-04 97s
+ep061 loss=0.3905 lr=5.58e-04 97s
+ep062 loss=0.3579 lr=5.44e-04 97s
+ep063 loss=0.3736 lr=5.29e-04 97s
+ep064 loss=0.4309 lr=5.15e-04 97s
+ep065 loss=0.4123 lr=5.00e-04 97s
+ep066 loss=0.3902 lr=4.86e-04 97s
+ep067 loss=0.3896 lr=4.71e-04 97s
+ep068 loss=0.3662 lr=4.57e-04 97s
+ep069 loss=0.3939 lr=4.42e-04 97s | valDice=0.8433 {'nasal_cavity': 0.8746, 'ethmoid': 0.7965, 'maxillary': 0.9102, 'sphenoid': 0.7857, 'frontal': 0.8496}
+ep070 loss=0.4144 lr=4.28e-04 97s
+ep071 loss=0.3652 lr=4.13e-04 97s
+ep072 loss=0.3907 lr=3.99e-04 97s
+ep073 loss=0.3941 lr=3.85e-04 97s
+ep074 loss=0.4163 lr=3.71e-04 97s
+ep075 loss=0.3918 lr=3.57e-04 97s
+ep076 loss=0.3744 lr=3.43e-04 97s
+ep077 loss=0.3964 lr=3.29e-04 97s
+ep078 loss=0.3764 lr=3.16e-04 97s
+ep079 loss=0.3910 lr=3.02e-04 97s | valDice=0.8785 {'nasal_cavity': 0.8823, 'ethmoid': 0.8152, 'maxillary': 0.9433, 'sphenoid': 0.8343, 'frontal': 0.9174}
+ep080 loss=0.3983 lr=2.89e-04 97s
+ep081 loss=0.3862 lr=2.76e-04 97s
+ep082 loss=0.3664 lr=2.63e-04 97s
+ep083 loss=0.3569 lr=2.50e-04 97s
+ep084 loss=0.3893 lr=2.38e-04 97s
+ep085 loss=0.4065 lr=2.26e-04 97s
+ep086 loss=0.3905 lr=2.14e-04 97s
+ep087 loss=0.4107 lr=2.02e-04 97s
+ep088 loss=0.3590 lr=1.90e-04 97s
+ep089 loss=0.3508 lr=1.79e-04 97s | valDice=0.8867 {'nasal_cavity': 0.8992, 'ethmoid': 0.8259, 'maxillary': 0.9508, 'sphenoid': 0.8446, 'frontal': 0.9127}
+ep090 loss=0.3593 lr=1.68e-04 97s
+ep091 loss=0.3828 lr=1.58e-04 97s
+ep092 loss=0.3810 lr=1.47e-04 97s
+ep093 loss=0.3959 lr=1.37e-04 97s
+ep094 loss=0.3602 lr=1.27e-04 97s
+ep095 loss=0.3688 lr=1.18e-04 97s
+ep096 loss=0.3802 lr=1.09e-04 97s
+ep097 loss=0.3742 lr=1.00e-04 97s
+ep098 loss=0.3666 lr=9.10e-05 97s
+ep099 loss=0.3889 lr=8.30e-05 97s | valDice=0.8888 {'nasal_cavity': 0.9003, 'ethmoid': 0.8276, 'maxillary': 0.9272, 'sphenoid': 0.8832, 'frontal': 0.9058}
+ep100 loss=0.4064 lr=7.50e-05 97s
+ep101 loss=0.3936 lr=6.80e-05 97s
+ep102 loss=0.3559 lr=6.10e-05 97s
+ep103 loss=0.3696 lr=5.40e-05 97s
+ep104 loss=0.3477 lr=4.80e-05 97s
+ep105 loss=0.3524 lr=4.20e-05 97s
+ep106 loss=0.3675 lr=3.60e-05 97s
+ep107 loss=0.3766 lr=3.10e-05 97s
+ep108 loss=0.3831 lr=2.60e-05 97s
+ep109 loss=0.3800 lr=2.20e-05 97s | valDice=0.8932 {'nasal_cavity': 0.9061, 'ethmoid': 0.8288, 'maxillary': 0.9395, 'sphenoid': 0.884, 'frontal': 0.9076}
+ep110 loss=0.4165 lr=1.80e-05 97s
+ep111 loss=0.3522 lr=1.40e-05 97s
+ep112 loss=0.4194 lr=1.10e-05 97s
+ep113 loss=0.3634 lr=9.00e-06 97s
+ep114 loss=0.3676 lr=6.00e-06 97s
+ep115 loss=0.3749 lr=4.00e-06 97s
+ep116 loss=0.4013 lr=3.00e-06 97s
+ep117 loss=0.4059 lr=2.00e-06 97s
+ep118 loss=0.3891 lr=1.00e-06 97s
+ep119 loss=0.3662 lr=1.00e-06 97s | valDice=0.8948 {'nasal_cavity': 0.913, 'ethmoid': 0.8303, 'maxillary': 0.9463, 'sphenoid': 0.8878, 'frontal': 0.8967}
+== fold 0 done, best mean Dice = 0.8948 ==
